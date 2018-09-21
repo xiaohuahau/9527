@@ -1,0 +1,116 @@
+1.index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>체스</title>
+    <link>
+
+
+</head>
+<body>
+    
+
+    <div> 
+    <div class="warp">
+    <div class="b"></div>
+    <div class="w"></div>
+
+    <div class="w"></div>
+    <div class="b"></div>
+
+    <div class="b"></div>
+    <div class="w"></div>
+
+    <div class="w"></div>
+    <div class="b"></div>
+
+    <div class="b"></div>
+    <div class="w"></div>
+
+    <div class="w"></div>
+    <div class="b"></div>
+
+
+    <div class="b"></div>
+    <div class="w"></div>
+
+    <div class="w"></div>
+    <div class="b"></div>
+
+
+
+
+    </div>
+    <script SRC="app.js"> </script>
+</body>
+</html>
+
+
+
+
+2.app.css
+
+.wrap {
+
+    width: 200px;
+}
+
+.wrap > div {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.warp.b{
+
+    width:50px;
+    height:50px;
+    background-color:#000;
+    }
+    .warp.w{
+    
+    
+        width:50px;
+        height:50px;
+        background-color:#eee;
+    
+    }
+    
+    
+    3.app.js
+    var warp=document.querySelector('.warp');
+
+
+var str='';
+for(let i=1;i<=4;i++){
+for(let j=1;j<=4;j++){
+var className=(i+j)%2=1?'b':'w';
+str+='<div class="'+className +'"></div>'
+}
+}
+warp.innerHTML=str;
+var block=document.querySelectorAll('.wrap>div');
+blocks.forEach(function(block){
+    blocks[i].addEventListener('click',function(event){
+console.log(block);
+})
+});
+
+function select(event){
+var block=event.currentTarget;
+block.style.backgroundColor='yellow';
+
+
+}
+
+for(var i=0;i<16;i++){
+//console.log(block[i]);
+blocks[i].addEventListener('click',select);}
+//debugger;
+//blocks[i].style.backgroundColor='yellow';
+//warp.innerHTML+='<div class="b"></div>';
+//str+='<div class="b"></div>';
+//warp.innerHTML=str;
