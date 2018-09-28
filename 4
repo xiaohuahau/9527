@@ -1,0 +1,100 @@
+1boon.app.js
+
+
+console.log(json);
+var str='';
+for(var i=0;i<json.data.length;i++){
+
+var title=json.data[i].title;
+var path=json.data[i].path;
+str +='<a href="https://1boon.kakao.com/'+path+'"target="_black">'+title+'</a><br>';
+}
+
+document.getElementById('wrap').innerHTML=str;
+
+})
+
+function getUrData(url,callback){
+fetch(url)
+.then(function(response){
+response.json().then(function(data){
+
+callback(data)
+
+});
+
+} 
+
+1boon.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=10">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1boon</title>
+</head>
+<body>
+
+    <h1>1boon</h1>
+    <div id="wrap"></div>
+    <script src="./app.js"></Script>
+    
+</body>
+</html>
+
+index.html
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ajax</h1>
+
+    
+    <script src="app.js"></script>
+</body>
+</html>
+
+data.json
+
+{
+"name":"ajax"
+}
+
+app.js
+console.log('app.js');
+
+fetch('./data.json')
+.then(function(response){
+response.json().then(function(data){
+console.log('json data:',data);
+document.getElementById('name').innerHTML=data.name;
+});
+})
+.catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+}
+
+function jsonp(){
+
+var head=document.querySelector('head');
+var script = document.createElement('script');
+script.src = 'jsonp.js';
+head.appendChild(script);
+
+}
+function callback(data){
+console.log(data)
+document
+
+}
+jsonp.js
+
